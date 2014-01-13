@@ -3,30 +3,39 @@
 import java.util.ArrayList;
 public class WordList {
 
-    private ArrayList<String> myList; // contains Strings made up of letters
+    private ArrayList<String> movies; 
+    private ArrayList<String> actors;
+    private ArrayList<String> idioms;
+    private ArrayList<String> brands;
     
     public WordList() {
-	myList = new ArrayList<String>(16);
 	//MOVIE QUOTES
-	myList.add("IT'S NOTHING PERSONAL SONNY, IT'S STRICTLY BUSINESS");
-	myList.add("LUKE, I AM YOUR FATHER");
-	myList.add("WHO YOU GONNA CALL? GHOSTBUSTERS!");
-	myList.add("YOU SHALL NOT PASS!");
+	movies = new ArrayList<String>(4);
+	movies.add("IT'S NOTHING PERSONAL SONNY, IT'S STRICTLY BUSINESS");
+	movies.add("LUKE, I AM YOUR FATHER");
+	movies.add("WHO YOU GONNA CALL? GHOSTBUSTERS!");
+	movies.add("YOU SHALL NOT PASS!");
+
 	//ACTORS
-	myList.add("JENNIFER LAWRENCE");
-	myList.add("LEONARDO DI CAPRIO");
-	myList.add("MARILYN MONROE");
-	myList.add("TOM HANKS");
+	actors = new ArrayList<String>(4);
+	actors.add("JENNIFER LAWRENCE");
+	actors.add("LEONARDO DI CAPRIO");
+	actors.add("MARILYN MONROE");
+	actors.add("TOM HANKS");
+
 	//IDIOMS
-	myList.add("RAINING CATS AND DOGS");
-	myList.add("PIECE OF CAKE");
-	myList.add("BREAK A LEG");
-	myList.add("HIT THE HAY");
+	idioms = new ArrayList<String>(4);
+	idioms.add("RAINING CATS AND DOGS");
+	idioms.add("PIECE OF CAKE");
+	idioms.add("BREAK A LEG");
+	idioms.add("HIT THE HAY");
+
 	//BRAND NAMES
-	myList.add("BARNES AND NOBLE");
-	myList.add("LOUIS VUITTON");
-	myList.add("GENERAL MILLS");
-	myList.add("AMERICAN AIRLINES");
+	brands = new ArrayList<String>(4);
+	brands.add("BARNES AND NOBLE");
+	brands.add("LOUIS VUITTON");
+	brands.add("GENERAL MILLS");
+	brands.add("AMERICAN AIRLINES");
     }
 
     //postcond: returns the number of words in this WordList that are 
@@ -49,8 +58,8 @@ public class WordList {
 	}
     }
 
-    public String get(int index) {
-	return myList.get(index);
+    public String get(int index, ArrayList<String> a) {
+	return a.get(index);
     }
 
     //... constructor and other methods not shown
