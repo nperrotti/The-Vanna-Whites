@@ -13,10 +13,16 @@ public class Wheel {
 	_board = new ArrayList<Tile>(16);
 	_numberFaceUp = 0;
 	_list = new WordList();
-	
-	for (int i = 0; i < 16; i++) {
-	    _board.add(new Tile(_list.get(i)));
+	String puzzle = _list.getPhrase();
+	String holdPl = new String();
+	int i = 0;
+	int j = 1;
+	for (int i = 0; i < puzzle.length(); i++) {
 	    
+	    holdPl = puzzle.substring(i,j);
+	    _board.add(new Tile(holdPl));
+	    i++;
+	    j++;
 	}
 	
 	
@@ -103,7 +109,7 @@ public class Wheel {
 
     //DO NOT MODIFY main()
     public static void main( String[] args ) {
-	Concentration game = new Concentration();
+	Wheel game = new Wheel();
 	game.play();
     }
 
