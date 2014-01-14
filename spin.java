@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class spin {
     public ArrayList<String> wheel = new ArrayList<String>(16);
     
