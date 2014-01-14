@@ -1,7 +1,4 @@
-//Oliver Zhang
-//pd 8
-//2013-12-16
-//HW 44
+//Tile
 
 public class Tile {
 

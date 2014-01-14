@@ -1,4 +1,4 @@
-//
+//WordList
 
 import java.util.ArrayList;
 public class WordList {
@@ -21,7 +21,7 @@ public class WordList {
 	actors.add("JENNIFER LAWRENCE");
 	actors.add("LEONARDO DI CAPRIO");
 	actors.add("MARILYN MONROE");
-	actors.add("TOM HANKS");
+	actors.add("ROBERTY DOWNEY JR");
 
 	//IDIOMS
 	idioms = new ArrayList<String>(4);
@@ -40,9 +40,9 @@ public class WordList {
 
     //postcond: returns the number of words in this WordList that are 
     //          exactly len letters long
-    public int numWordsOfLength(int len) { 
+    public int numWordsOfLength(int len, ArrayList<String> a) { 
 	int num = 0;
-	for (String x : myList) {
+	for (String x : a) {
 	    if (x.length() == len) 
 		num += 1;
 	}
@@ -51,10 +51,10 @@ public class WordList {
 
     //postcond: all words that are exactly len letters long have been removed 
     //          from this WordList, with order of remaining words unchanged
-    public void removeWordsOfLength(int len) { 
-	for (String x : myList) {
+    public void removeWordsOfLength(int len, ArrayList<String> a) { 
+	for (String x : a) {
 	    if (x.length() == len) 
-		myList.remove(x);
+		a.remove(x);
 	}
     }
 
