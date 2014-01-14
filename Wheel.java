@@ -14,7 +14,7 @@ public class Wheel {
 	_numberFaceUp = 0;
 	_list = new WordList();
 	
-	for (int i = 0; i < 16; i ++) {
+	for (int i = 0; i < 16; i++) {
 	    _board.add(new Tile(_list.get(i)));
 	    
 	}
