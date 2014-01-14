@@ -7,11 +7,12 @@ public class WordList {
     private ArrayList<String> actors;
     private ArrayList<String> idioms;
     private ArrayList<String> brands;
+    public String category;
     
     public WordList() {
 	//MOVIE QUOTES
 	movies = new ArrayList<String>(4);
-	movies.add("IT'S NOTHING PERSONAL SONNY, IT'S STRICTLY BUSINESS");
+	movies.add("IT'S NOTHING PERSONAL, IT'S STRICTLY BUSINESS");
 	movies.add("LUKE, I AM YOUR FATHER");
 	movies.add("WHO YOU GONNA CALL? GHOSTBUSTERS!");
 	movies.add("YOU SHALL NOT PASS!");
@@ -38,6 +39,32 @@ public class WordList {
 	brands.add("AMERICAN AIRLINES");
     }
 
+    public String getPhrase() {
+	int listchoose = (int)(Math.random() * 4);
+	String retStr;
+	if (listchoose == 0) {
+	    retStr =  movies.get((int)(Math.random() * 4));
+	    category = "Movie Quotes:";
+	}
+	else if (listchoose == 1) {
+	    retStr = actors.get((int)(Math.random() * 4));
+	    category = "Actors and Actresses:";
+	}
+	else if (listchoose == 2) {
+	    retStr = idioms.get((int)(Math.random() * 4));
+	    category = "Idioms:";
+	}
+	else {
+	    retStr =  brands.get((int)(Math.random() * 4));
+	    category = "Brand Names:";
+	}
+	return retStr;
+    }
+
+    public String getCat() {
+	return category;
+    }
+
     //postcond: returns the number of words in this WordList that are 
     //          exactly len letters long
     public int numWordsOfLength(int len, ArrayList<String> a) { 
@@ -60,6 +87,12 @@ public class WordList {
 
     public String get(int index, ArrayList<String> a) {
 	return a.get(index);
+    }
+
+    public static void main( String[] args) {
+	WordList ollie = new WordList();
+	System.out.println(ollie.getPhrase());
+	System.out.println(ollie.getCat());
     }
 
     //... constructor and other methods not shown
