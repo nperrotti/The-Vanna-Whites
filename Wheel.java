@@ -10,14 +10,14 @@ public class Wheel {
 
     public Wheel() {
 	
-	_board = new ArrayList<Tile>(16);
+	_board = new OurArray<Tile>(16);
 	_numberFaceUp = 0;
 	_list = new WordList();
 	String puzzle = _list.getPhrase();
 	String holdPl = new String();
 	int i = 0;
 	int j = 1;
-	for (int i = 0; i < puzzle.length(); i++) {
+	for (int x = 0; x < puzzle.length(); x++) {
 	    
 	    holdPl = puzzle.substring(i,j);
 	    _board.add(new Tile(holdPl));
@@ -27,7 +27,7 @@ public class Wheel {
 	
 	
 	int a = 3;
-	while ( a > 0) {
+	/*while ( a > 0) {
 		for (int i = 0; i < 16; i ++) {
 			int rand = (int)(Math.random() * 16);
 			Tile holder = new Tile();
@@ -38,12 +38,12 @@ public class Wheel {
 			this._board.set(rand,holder2);	
 		}
 		a--;
-	}
+		}*/
     }
 
     //instance variables
     //storage for 4x4 grid of Tiles. _board.size() == 16	
-    private ArrayList<Tile> _board; 
+    private OurArray<Tile> _board; 
 
     //count of Tiles with faces visible
     private int _numberFaceUp;  
@@ -53,6 +53,14 @@ public class Wheel {
 
     private static int _numRows = 4;
 
+    public String toString() {
+	String retStr = "";
+	for (int i = 0; i < _board.size(); i++) {
+	    retStr += _board.get(i).getFace();
+	    retStr += " ";
+	}
+	return retStr;
+    }
 
     /*public static void main( String[] args ) {
 	Concentration game = new Concentration();
@@ -74,33 +82,47 @@ public class Wheel {
     } */   
 
     public void play() {
-	int ans;
+	String ans;
 	int ans2;
 	
 	while (this._board.size() > 0) {
-		System.out.println("here is your board\n");
+	    for (int g = 0; g < _board.size(); g++) {
+		if (_board.get(g).getFace().equals(",") || 
+		    _board.get(g).getFace().equals(" ") || 
+		    _board.get(g).getFace().equals("!") ||
+		    _board.get(g).getFace().equals("'") ||
+		    _board.get(g).getFace().equals("?"))
+		    
+		    _board.get(g).flip();
+	    }
+	    System.out.println("here is your board\n");
+	    System.out.println(this._board);
+	    System.out.println("guess a letter!");
+	    ans = Keyboard.readString();
+	    /*System.out.println("");
+	      ans2 = Keyboard.readInt();
+	    if (ans > this._board.size() || ans2 > this._board.size() || ans < 1 || ans2< 1)
+		System.out.println("you cant pick those tiles");
+	    else {
+		this._board.get(ans - 1).flip();
+		this._board.get(ans2 - 1).flip();
+		System.out.println("ok, here are the revealed tiles");
 		System.out.println(this._board);
-		System.out.println("which tile do you want to flip?\n");
-		ans = Keyboard.readInt();
-		System.out.println("ok, second tile\n");
-		ans2 = Keyboard.readInt();
-		if (ans > this._board.size() || ans2 > this._board.size() || ans < 1 || ans2< 1)
-			System.out.println("you cant pick those tiles");
-		else {
-			this._board.get(ans - 1).flip();
-			this._board.get(ans2 - 1).flip();
-			System.out.println("ok, here are the revealed tiles");
-			System.out.println(this._board);
-			if (this._board.get(ans - 1).equals(this._board.get(ans2 - 1))) {
-				this._board.remove(ans - 1);
-				this._board.remove(ans2 - 2);
-				System.out.println("YOU GOT A MATCH");
-			}
-			else {
-				this._board.get(ans - 1).flip();
-				this._board.get(ans2 - 1).flip();
-			}
+		if (this._board.get(ans - 1).equals(this._board.get(ans2 - 1))) {
+		    this._board.remove(ans - 1);
+		    this._board.remove(ans2 - 2);
+		    System.out.println("YOU GOT A MATCH");
 		}
+		else {
+		    this._board.get(ans - 1).flip();
+		    this._board.get(ans2 - 1).flip();
+		    }
+		}*/
+	    for (int j = 0; j < _board.size(); j++) {
+		if (_board.get(j).getFace().equals(ans)) 
+		    _board.get(j).flip();
+	    }
+	    
 	}
 	System.out.println("YOU WON!");
 	
