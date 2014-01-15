@@ -24,9 +24,12 @@ public class Tile {
 	if ( isFaceUp() )
 	    return _face;
 	else
-	    return "-X-";
+	    return "[]";
     }
 
+    public String getFace() {
+	return _face;
+    }
     //*** YOU WILL NEED TO IMPLEMENT EQUALS ***
     //	  ...(use the hints below)
 
