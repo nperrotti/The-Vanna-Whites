@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class spin {
     public ArrayList<String> wheel = new ArrayList<String>(16);
+    public String score;
     
     public spin() {
 
@@ -24,8 +25,14 @@ public class spin {
     }
 
     public String spinie() {
-	return wheel.get((int)(Math.random() * 16));
+	score = (wheel.get((int)(Math.random() * 16)));
+	return score;
     }
+
+    public String getScore(){
+	return score;
+    }
+
     public static void main(String[] args) {
 	spin ollie = new spin();
 	System.out.println(ollie.spinie());
