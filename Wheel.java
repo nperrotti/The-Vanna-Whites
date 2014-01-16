@@ -53,6 +53,15 @@ public class Wheel {
 
     private static int _numRows = 4;
 
+    public boolean gameOver() {
+	boolean retBoo = false;
+	for (int i = 0; i < _board.size(); i++) {
+	    if (!(_board.get(i).isFaceUp()))
+		return false;
+	}
+	return true;
+    }
+
     public String toString() {
 	String retStr = "";
 	for (int i = 0; i < _board.size(); i++) {
@@ -62,31 +71,11 @@ public class Wheel {
 	return retStr;
     }
 
-    /*public static void main( String[] args ) {
-	Concentration game = new Concentration();
-	System.out.println(game._board);
-	int rand = (int)(Math.random() * 16);
-	for (int i = 0; i < 16; i ++) {
-		Tile holder = new Tile();
-		Tile holder2 = new Tile(); 
-		holder = game._board.get(rand);	
-		holder2 = game._board.get(i);	
-		game._board.set(i,holder);
-		game._board.set(rand,holder2);	
-	}
-	for (int i = 0; i < 16; i ++) {
-		game._board.get(i).flip();
-	}
-	System.out.println(game._board);
-	game.play();
-    } */   
-
     public void play() {
 	String ans;
-	int ans2;
-	
-	while (this._board.size() > 0) {
-	    for (int g = 0; g < _board.size(); g++) {
+	ArrayList guessedLetters = new ArrayList();
+	int numCount = 0;
+	for (int g = 0; g < _board.size(); g++) {
 		if (_board.get(g).getFace().equals(",") || 
 		    _board.get(g).getFace().equals(" ") || 
 		    _board.get(g).getFace().equals("!") ||
@@ -95,33 +84,29 @@ public class Wheel {
 		    
 		    _board.get(g).flip();
 	    }
+	while (!this.gameOver()) {
+	    numCount = 0;
 	    System.out.println("here is your board\n");
 	    System.out.println(this._board);
 	    System.out.println("guess a letter!");
 	    ans = Keyboard.readString();
-	    /*System.out.println("");
-	      ans2 = Keyboard.readInt();
-	    if (ans > this._board.size() || ans2 > this._board.size() || ans < 1 || ans2< 1)
-		System.out.println("you cant pick those tiles");
-	    else {
-		this._board.get(ans - 1).flip();
-		this._board.get(ans2 - 1).flip();
-		System.out.println("ok, here are the revealed tiles");
-		System.out.println(this._board);
-		if (this._board.get(ans - 1).equals(this._board.get(ans2 - 1))) {
-		    this._board.remove(ans - 1);
-		    this._board.remove(ans2 - 2);
-		    System.out.println("YOU GOT A MATCH");
-		}
-		else {
-		    this._board.get(ans - 1).flip();
-		    this._board.get(ans2 - 1).flip();
-		    }
-		}*/
-	    for (int j = 0; j < _board.size(); j++) {
-		if (_board.get(j).getFace().equals(ans)) 
-		    _board.get(j).flip();
+	    
+	    while (guessedLetters.indexOf(ans) != -1)  {
+		System.out.println("You guesed this letter already");
+		ans = Keyboard.readString();
 	    }
+	    guessedLetters.add(ans);
+	    for (int j = 0; j < _board.size(); j++) {
+		if (_board.get(j).getFace().equals(ans)) {
+		    _board.get(j).flip();
+		    numCount += 1;
+		}
+		
+	    }
+	    if (numCount == 1) 
+		System.out.println("There was " + numCount + " " + ans);
+	    else 
+		System.out.println("There were " + numCount + " " + ans + "s");
 	    
 	}
 	System.out.println("YOU WON!");
