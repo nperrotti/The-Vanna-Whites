@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import cs1.Keyboard;
 
 public class Wheel {
-
+    String puzzle;
     public Wheel() {
 	
 	_board = new OurArray<Tile>(16);
 	_numberFaceUp = 0;
 	_list = new WordList();
-	String puzzle = _list.getPhrase();
+	puzzle = _list.getPhrase();
 	String holdPl = new String();
 	int i = 0;
 	int j = 1;
@@ -88,27 +88,37 @@ public class Wheel {
 	    numCount = 0;
 	    System.out.println("here is your board\n");
 	    System.out.println(this._board);
-	    System.out.println("guess a letter!");
+	    System.out.println("guess a letter, or guess the phrase");
 	    ans = Keyboard.readString();
-	    
-	    while (guessedLetters.indexOf(ans) != -1)  {
-		System.out.println("You guesed this letter already");
-		ans = Keyboard.readString();
-	    }
-	    guessedLetters.add(ans);
-	    for (int j = 0; j < _board.size(); j++) {
-		if (_board.get(j).getFace().equals(ans)) {
-		    _board.get(j).flip();
-		    numCount += 1;
+	    ans = ans.toUpperCase();
+	    if (ans.equals(puzzle)) {
+		System.out.println("YOU GUESSED THE PHRASE!"); 
+		for (int i = 0; i < _board.size(); i++) {
+		    if (!(_board.get(i).isFaceUp()))
+			_board.get(i).flip();
 		}
-		
 	    }
-	    if (numCount == 1) 
-		System.out.println("There was " + numCount + " " + ans);
-	    else 
-		System.out.println("There were " + numCount + " " + ans + "s");
-	    
+	    else { 
+		while (guessedLetters.indexOf(ans) != -1)  {
+		    System.out.println("You guesed this letter already");
+		    ans = Keyboard.readString();
+		    ans = ans.toUpperCase();
+		}
+		guessedLetters.add(ans);
+		for (int j = 0; j < _board.size(); j++) {
+		    if (_board.get(j).getFace().equals(ans)) {
+			_board.get(j).flip();
+			numCount += 1;
+		    }
+		
+		}
+		if (numCount == 1) 
+		    System.out.println("There was " + numCount + " " + ans);
+		else 
+		    System.out.println("There were " + numCount + " " + ans + "s");
+	    }
 	}
+	System.out.println(_board);
 	System.out.println("YOU WON!");
 	
     }
