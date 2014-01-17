@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import cs1.Keyboard;
 
 public class Wheel {
-    String puzzle;
+    public String puzzle;
     public Wheel() {
 	
 	_board = new OurArray<Tile>(16);
