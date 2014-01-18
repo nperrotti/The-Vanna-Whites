@@ -8,12 +8,27 @@ import cs1.Keyboard;
 
 public class Wheel {
     public String puzzle;
+    public String cat;
+    
+    public OurArray<Tile> _board; 
+
+    //count of Tiles with faces visible
+    private int _numberFaceUp;  
+
+    private final static String symbols = "!?,.@#$%^&*()-=+_/><";
+
+    //list of Strings used for Tile vals
+    private WordList _list;
+
+    private static int _numRows = 4;
+    //public OurArray _board;
     public Wheel() {
 	
 	_board = new OurArray<Tile>(16);
 	_numberFaceUp = 0;
 	_list = new WordList();
 	puzzle = _list.getPhrase();
+	cat = _list.category;
 	String holdPl = new String();
 	int i = 0;
 	int j = 1;
@@ -27,31 +42,14 @@ public class Wheel {
 	
 	
 	int a = 3;
-	/*while ( a > 0) {
-		for (int i = 0; i < 16; i ++) {
-			int rand = (int)(Math.random() * 16);
-			Tile holder = new Tile();
-			Tile holder2 = new Tile(); 
-			holder = this._board.get(rand);	
-			holder2 = this._board.get(i);	
-			this._board.set(i,holder);
-			this._board.set(rand,holder2);	
-		}
-		a--;
-		}*/
     }
 
-    //instance variables
-    //storage for 4x4 grid of Tiles. _board.size() == 16	
-    private OurArray<Tile> _board; 
-
-    //count of Tiles with faces visible
-    private int _numberFaceUp;  
-
-    //list of Strings used for Tile vals
-    private WordList _list;
-
-    private static int _numRows = 4;
+    public static boolean isSymbol(String s) {
+	if (symbols.indexOf(s) > -1) 
+		return true;
+	else 	
+		return false;
+    }  
 
     public boolean gameOver() {
 	boolean retBoo = false;
@@ -75,6 +73,7 @@ public class Wheel {
 	String ans;
 	ArrayList guessedLetters = new ArrayList();
 	int numCount = 0;
+	System.out.println("the category is " + cat);
 	for (int g = 0; g < _board.size(); g++) {
 		if (_board.get(g).getFace().equals(",") || 
 		    _board.get(g).getFace().equals(" ") || 
@@ -87,7 +86,9 @@ public class Wheel {
 	while (!this.gameOver()) {
 	    numCount = 0;
 	    System.out.println("here is your board\n");
+	    
 	    System.out.println(this._board);
+	    
 	    System.out.println("guess a letter, or guess the phrase");
 	    ans = Keyboard.readString();
 	    ans = ans.toUpperCase();
@@ -98,7 +99,15 @@ public class Wheel {
 			_board.get(i).flip();
 		}
 	    }
+		
+
 	    else { 
+		if (isSymbol(ans))
+			while (isSymbol(ans))  {
+			    System.out.println("You guesed a symbol");
+			    ans = Keyboard.readString();
+			    ans = ans.toUpperCase();
+		}	
 		while (guessedLetters.indexOf(ans) != -1)  {
 		    System.out.println("You guesed this letter already");
 		    ans = Keyboard.readString();
