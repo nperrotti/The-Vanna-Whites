@@ -9,6 +9,7 @@ import cs1.Keyboard;
 public class Wheel {
     public String puzzle;
     public String cat;
+    public spin fortune = new spin();
     
     public OurArray<Tile> _board; 
 
@@ -73,6 +74,7 @@ public class Wheel {
 	String ans;
 	ArrayList guessedLetters = new ArrayList();
 	int numCount = 0;
+	int guessCount = 10;
 	System.out.println("the category is " + cat);
 	for (int g = 0; g < _board.size(); g++) {
 		if (_board.get(g).getFace().equals(",") || 
@@ -98,6 +100,7 @@ public class Wheel {
 		    if (!(_board.get(i).isFaceUp()))
 			_board.get(i).flip();
 		}
+		guessCount -= 1;
 	    }
 		
 
@@ -121,15 +124,24 @@ public class Wheel {
 		    }
 		
 		}
-		if (numCount == 1) 
+		if (numCount == 1) {   
 		    System.out.println("There was " + numCount + " " + ans);
-		else 
+		    fortune.addScore(numCount);
+		    System.out.println(fortune.getScore());
+		}
+		else { 
 		    System.out.println("There were " + numCount + " " + ans + "s");
+		    fortune.addScore(numCount);
+		    System.out.println(fortune.getScore());
+		}
+		guessCount -= 1;
 	    }
 	}
+	if (guessCount < 0)
+	    guessCount = 0;
 	System.out.println(_board);
 	System.out.println("YOU WON!");
-	
+	System.out.println(fortune.getScore() + guessCount * 100 + " Was your score");
     }
 
 
