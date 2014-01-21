@@ -12,11 +12,11 @@ public class WordList {
     public WordList() {
 	//MOVIE QUOTES
 	movies = new ArrayList<String>(4);
-	movies.add("IT'S NOTHING PERSONAL, IT'S STRICTLY BUSINESS");
+	movies.add("AN OFFER HE CAN'T REFUSE");
 	movies.add("LUKE, I AM YOUR FATHER");
-	movies.add("WHO YOU GONNA CALL? GHOSTBUSTERS!");
+	movies.add("I'LL BE BACK");
 	movies.add("YOU SHALL NOT PASS!");
-	movies.add("I DON'T THINK WE'RE IN KANSAS ANYMORE");
+	movies.add("SOMEWHERE OVER THE RAINBOW");
 	movies.add("THE NAME'S BOND, JAMES BOND");
 	movies.add("HOUSTON, WE HAVE A PROBLEM");
 

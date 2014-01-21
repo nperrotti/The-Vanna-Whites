@@ -75,7 +75,12 @@ public class Wheel {
 	ArrayList guessedLetters = new ArrayList();
 	int numCount = 0;
 	int guessCount = 10;
-	System.out.println("the category is " + cat);
+	int len = puzzle.length();
+	String lines = "";
+	for(int u = 0; u<len*3; u++){
+	    lines += "-";
+	}
+	System.out.println("\nTHE CATEGORY IS " + cat);
 	for (int g = 0; g < _board.size(); g++) {
 		if (_board.get(g).getFace().equals(",") || 
 		    _board.get(g).getFace().equals(" ") || 
@@ -87,13 +92,16 @@ public class Wheel {
 	    }
 	while (!this.gameOver()) {
 	    numCount = 0;
-	    System.out.println("here is your board\n");
+	    
+	    System.out.println("Here is your board\n");
+	    System.out.println(lines + "\n");
 	    
 	    System.out.println(this._board);
-	    
-	    System.out.println("guess a letter, or guess the phrase");
+	    System.out.println("\n"+lines);
+	    System.out.println("\nGuess a letter, or guess the phrase");
 	    ans = Keyboard.readString();
 	    ans = ans.toUpperCase();
+	    
 	    if (ans.equals(puzzle)) {
 		System.out.println("YOU GUESSED THE PHRASE!"); 
 		for (int i = 0; i < _board.size(); i++) {
@@ -127,12 +135,12 @@ public class Wheel {
 		if (numCount == 1) {   
 		    System.out.println("There was " + numCount + " " + ans);
 		    fortune.addScore(numCount);
-		    System.out.println(fortune.getScore());
+		    System.out.println("Your Score:" + fortune.getScore());
 		}
 		else { 
 		    System.out.println("There were " + numCount + " " + ans + "s");
 		    fortune.addScore(numCount);
-		    System.out.println(fortune.getScore());
+		    System.out.println("Your Score:" + fortune.getScore());
 		}
 		guessCount -= 1;
 	    }
@@ -141,7 +149,7 @@ public class Wheel {
 	    guessCount = 0;
 	System.out.println(_board);
 	System.out.println("YOU WON!");
-	System.out.println(fortune.getScore() + guessCount * 100 + " Was your score");
+	System.out.println(fortune.getScore() + guessCount * 100 + " was your score");
     }
 
 
