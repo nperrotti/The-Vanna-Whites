@@ -13,14 +13,19 @@ public class SimpleGui1{
 
 	public void go() {
 		JFrame frame = new JFrame();
+		JFrame frame2 = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		MyDrawPanel drawPanel = new MyDrawPanel();
-
-		frame.getContentPane().add(drawPanel);
+		frame.getContentPane().add(new GuiTile());
+		frame2.getContentPane().add(drawPanel);
+		
 		frame.setSize(400,400);
 		frame.setVisible(true);
 
+		frame2.setSize(400,400);
+		frame2.setVisible(true);
 		for (int i = 0; i < 2000; i++) {
 			x += 0.01;
 			
