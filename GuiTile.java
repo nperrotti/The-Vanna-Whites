@@ -24,7 +24,7 @@ public class GuiTile  extends JPanel {
 	JFrame frame = new JFrame();
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setContentPane(new GuiTile());
-	frame.setSize(500, 500);
+	frame.setSize(100, 100);
 	frame.setVisible(true);
     }
 }
