@@ -1,0 +1,22 @@
+Nicholas Perrotti and Oliver Zhang
+
+The Logs:
+  2014/1/08 - The repository was created and with new working ssh keys we cloned to our machines and planed out our project plans on paper.
+  2014/1/09 - Oliver uploaded the Tile and WordList files to github so Nick can reference them when he creates the game board with the phrases. Nick then edited the WordList.java file to contain the phrases that will be used for the game.
+  2014/1/13 - Nick edited the WordList file to robustify it and create accessor methods. Oliver uploaded and edited the former Concentration game and made it into Wheel.java the main file for our project. Together we began editing this to input phrases and flip the tiles by user input. Nick also edited Tile to begin the process of flipping tiles or letters in the phrase. Oliver uploaded spin.java which it the wheel function of the game.
+  2014/1/14 - We continued to edit wheel to fit the desired requirements. It can now import the phrase and creating a game board.
+  2014/1/15 - Nick created the OurArray.java file that has a toString method that prints out the phrase in the terminal. Nick also began work on GUI and experimented with opening the window and creating buttons. Together we edited Wheel.java to further apply it to Wheel of Fortune as oppose to the original Concentration.
+  2014/1/16 - Oliver furthered edited Wheel.java to return errors and accept lowercase and capital letters. Nick continued to experiment with GUI in an attempt to begin to recreate the wheel function through GUI. He realized that it had to be completely rewritten and that they could not use the terminal code.
+  2014/1/17 - Oliver completed the work on the wheel with Nick's help and all that now needs to be done for the game in terminal is robustification. Nick once again experiments with GUI and tries to establish a score keeping function as well as a function to display the phrase.
+  2014/1/18 - Oliver imported a spinning wheel gif into the GUI.
+  2014/1/19 - Together Oliver and Nicholas imported a scoring method into the terminal game.
+  2014/1/21 - Nick robustifies the terminal because it is starting to seem like GUI is too complicated.
+  2014/1/22 - Oliver continues his optimistic attempts to get a working GUI.
+  2014/1/23 - On the last day before the project, Oliver once again tries to tackle GUI and it seems like it will not be done. The terminal code is perfect however. Nick worked on the devlog.txt file.
+
+The Questions:
+  Obstacles Overcome - One obstacle we overcame was the ability to guess an entire phrase and get points, despite the number of tiles flipped up. We completed this as well as the obstacle of guessing lowercase vs uppercase. We fized it so that it can take both. 
+  Unresolved Issues - Our primary unresolved issue was that our GUI doesn't work! We tried very hard but realized it was futile.
+  Cool Stuff Learned - With the large experimenting we did with GUI we did learn a lot. We learned how to create buttons, print strings and implement wheel gifs!! These are all useful for later in CS when we work with GUI again.
+  Mid-Development Design Changes - As suggested by Mr. Brown, we created the terminal version of our game first before we moved to GUI. This did not turn out well because once we began GUI, it was much more difficult than we thought to move the code into GUI. We soon realized the code would have to be entirely rewritten to fit for GUI. As a result, we had to abandon GUI and focus on making a flawless terminal game. Its unfortunate though because GUI would have been pretty amazing.
+  Lessons Learned - we learned that planning is more important than we thought. We should have predicted that we would not be able to convert the terminal to GUI and just start from GUI. We also learned from our experience of skipping GUI, that a strong and robust terminal code is better than a visual but faulty GUI one.
