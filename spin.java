@@ -38,6 +38,14 @@ public class spin {
 	return result;
     }
 
+    public void removeVal(String val) {
+	wheel.remove(val);
+    }
+
+    public void setScore(int newVal) {
+	score = newVal;
+    }
+
     public int getScore(){
 	return score;
     }

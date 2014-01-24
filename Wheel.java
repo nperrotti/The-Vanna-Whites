@@ -111,6 +111,17 @@ public class Wheel {
 		guessCount -= 1;
 	    }
 		
+	    else if (ans.equals("ALL YOUR BASE ARE BELONG TO US")) {
+		System.out.println("Cheat Code Activated");
+		for (int i = 0; i < _board.size(); i++) {
+		    if (!(_board.get(i).isFaceUp())) {
+			_board.get(i).flip();
+		      
+		    }
+		}
+		fortune.setScore(5000);
+		fortune.addScore(100);
+	    }
 
 	    else { 
 		if (isSymbol(ans))
